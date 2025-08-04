@@ -1,4 +1,4 @@
-﻿WITH tb_fl_churn AS (
+WITH tb_fl_churn AS (
 
     SELECT t1.dtRef,
         t1.idCustomer,

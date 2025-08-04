@@ -51,4 +51,7 @@ tb_join AS (
     ON t1.idCustomer = t2.idCustomer
     )
 
-SELECT * FROM tb_join
+SELECT 
+        '{date}' AS dtRef,
+        *
+FROM tb_join
