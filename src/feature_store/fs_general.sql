@@ -32,14 +32,16 @@ tb_idade AS (
         GROUP BY t2.idCustomer
 )
 
-SELECT t1.*,
-    t2.idadeBaseDias,
-    t3.flEmail
+SELECT
+     '{date}' AS dtRef,
+     t1.*,
+     t2.idadeBaseDias,
+     t3.flEmail
 
 FROM tb_rfv AS t1
 
 LEFT JOIN tb_idade AS t2
 ON t1.idCustomer = t2.idCustomer
 
-LEFT JOIN customers as t3
+LEFT JOIN customers AS t3
 ON t1.idCustomer = t3.idCustomer

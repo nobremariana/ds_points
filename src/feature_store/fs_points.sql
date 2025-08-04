@@ -2,6 +2,8 @@ WITH tb_pontos_d AS (
 
     SELECT  idCustomer,
             SUM(pointsTransaction) AS saldoPointsD21,
+            SUM(CASE WHEN dtTransaction >= DATE('{date}', '-14 day') THEN pointsTransaction ELSE 0 END) AS saldoPointsD14,
+            SUM(CASE WHEN dtTransaction >= DATE('{date}', '-7 day')  THEN pointsTransaction ELSE 0 END) AS saldoPointsD7,
             SUM(CASE WHEN pointsTransaction > 0 THEN pointsTransaction ELSE 0 END) AS pointsAcumuladosD21,
             SUM(CASE WHEN pointsTransaction > 0 AND dtTransaction >= DATE ('{date}', '-14 day')THEN pointsTransaction ELSE 0 END) AS pointsAcumuladosD14,
             SUM(CASE WHEN pointsTransaction > 0 AND dtTransaction >= DATE ('{date}', '-7 day')THEN pointsTransaction ELSE 0 END) AS pointsAcumuladosD7,
